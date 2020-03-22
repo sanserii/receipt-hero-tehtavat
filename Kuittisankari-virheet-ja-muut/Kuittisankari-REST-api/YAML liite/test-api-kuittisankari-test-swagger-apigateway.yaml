@@ -1,0 +1,111 @@
+---
+swagger: "2.0"
+info:
+  version: "2020-03-20T20:27:51Z"
+  title: "test-api"
+host: "bikt79qld5.execute-api.eu-west-1.amazonaws.com"
+basePath: "/kuittisankari-test"
+schemes:
+- "https"
+paths:
+  /testi-kolmas-dev-helloWorld:
+    x-amazon-apigateway-any-method:
+      responses:
+        200:
+          description: "200 response"
+      x-amazon-apigateway-integration:
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:598931837424:function:testi-kolmas-dev-helloWorld/invocations"
+        responses:
+          .*:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "aws_proxy"
+  /todos:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "userId"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "todos"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "completed"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "id"
+        in: "query"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+      x-amazon-apigateway-integration:
+        uri: "https://jsonplaceholder.typicode.com/todos"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.querystring.completed: "method.request.querystring.completed"
+          integration.request.querystring.id: "method.request.querystring.id"
+          integration.request.querystring.userId: "method.request.querystring.userId"
+          integration.request.querystring.todos: "method.request.querystring.todos"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "GET"
+        type: "http"
+    post:
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+      x-amazon-apigateway-integration:
+        uri: "https://jsonplaceholder.typicode.com/todos"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        httpMethod: "POST"
+        type: "http"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestTemplates:
+          application/json: "{\"statusCode\": 200}"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+definitions:
+  Empty:
+    type: "object"
+    title: "Empty Schema"

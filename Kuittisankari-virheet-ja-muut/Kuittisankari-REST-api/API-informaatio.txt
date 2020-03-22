@@ -1,0 +1,9 @@
+URL:
+https://bikt79qld5.execute-api.eu-west-1.amazonaws.com/kuittisankari-test/todos
+
+
+Haku URLista:
+https://bikt79qld5.execute-api.eu-west-1.amazonaws.com/kuittisankari-test/todos?userId={haluttuUid}
+	-Esimerkki
+	https://bikt79qld5.execute-api.eu-west-1.amazonaws.com/kuittisankari-test/todos?userId=1
+
