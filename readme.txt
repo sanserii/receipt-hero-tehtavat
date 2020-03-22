@@ -1,6 +1,6 @@
 Valitettavasti en onnistunut CLI pohjaisessa serverless frameworkkia käyttävässä API endpointin rakentamisessa.
 
-Uskon, että onnistumattomuuteni syy on kokemattomuuteni YAML ja serverless arkkitehtuuriin.
+Uskon, että onnistumattomuuteni syy on kokemattomuuteni YAML dataan ja serverless arkkitehtuuriin.
 Ongelmani oli serverless frameworkkia CLI:ltä käyttäessäni tulevat "internal server error" virhekoodit, vaikka ohjelmat toimisivat selaimella lambdassa.
 
 Tein silti vaihtoehtoisia ratkaisuja ja pyrin yrittämään kaikkia keinoja.
