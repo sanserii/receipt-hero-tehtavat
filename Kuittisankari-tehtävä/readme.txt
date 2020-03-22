@@ -1,5 +1,5 @@
 Tein siis tehtävän aws konsolilla selaimella, ja pyrin ymmärtämään alustan mahdollisimman hyvin. 
-Tehtävä tuotti minulle haasteita, mutta paljon sitä tehdessä. 
+Tehtävä tuotti minulle haasteita, mutta opin paljon sitä tehdessä. 
 
 Näytönkaappauskuva otettu sunnuntai-iltana 22/03/2020 20:52
 
